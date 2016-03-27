@@ -34,15 +34,17 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("newPageCell", forIndexPath: indexPath)
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("savedPageCell", forIndexPath: indexPath)
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("savedPageCell", forIndexPath: indexPath) as! PageCell
+            cell.setPage(self.pages[indexPath.row])
             return cell
         }
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let url = "https://en.wikipedia.org/wiki/Special:Random"
-        if !self.isAddPageItemAtIndex(indexPath.row) {
-
+        var url = "https://en.wikipedia.org/wiki/Special:Random"
+        if !self.isAddPageItemAtIndex(indexPath.row), let savedUrl = self.pages[indexPath.row]["url"] {
+            print("\(url)")
+            url = savedUrl
         }
         let controller = WikiViewController.wikiPageControllerWithUrl(url)
         self.navigationController?.pushViewController(controller, animated: true)

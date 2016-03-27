@@ -17,6 +17,7 @@
 		19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */; };
 		19F8F6071CA7FCFE006A3690 /* SavePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */; };
 		19F8F6091CA8064D006A3690 /* WikiStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6081CA8064D006A3690 /* WikiStore.swift */; };
+		19F8F60C1CA80D88006A3690 /* PageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F60B1CA80D88006A3690 /* PageCells.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePageViewController.swift; sourceTree = "<group>"; };
 		19F8F6081CA8064D006A3690 /* WikiStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiStore.swift; sourceTree = "<group>"; };
+		19F8F60B1CA80D88006A3690 /* PageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */,
 				19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */,
 				19F8F6081CA8064D006A3690 /* WikiStore.swift */,
+				19F8F60B1CA80D88006A3690 /* PageCells.swift */,
 			);
 			path = RandomWiki;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19F8F60C1CA80D88006A3690 /* PageCells.swift in Sources */,
 				19F8F6011CA7E88F006A3690 /* ListViewController.swift in Sources */,
 				19F8F6091CA8064D006A3690 /* WikiStore.swift in Sources */,
 				19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */,

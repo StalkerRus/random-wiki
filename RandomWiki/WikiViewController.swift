@@ -15,8 +15,6 @@ class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControll
 
     var url: NSURL?
 
-    private var popover: UIPopoverController?
-
     class func wikiPageControllerWithUrl(urlString: String) -> WikiViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let wiki = storyboard.instantiateViewControllerWithIdentifier("wikiViewController") as! WikiViewController
@@ -69,20 +67,20 @@ class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControll
 
     @IBAction func savePage() {
         var title = ""
-        guard let url = self.webView.stringByEvaluatingJavaScriptFromString("window.location") else { return }
+        guard let url = self.webView.request?.mainDocumentURL else { return }
         if let webTitle = self.webView.stringByEvaluatingJavaScriptFromString("document.title") {
             title = webTitle
         }
         let data = [
             "title" : title,
-            "url" : url
+            "url" : url.absoluteString
         ]
         let vc = SavePageViewController.savePageControllerWithData(data)
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
     @IBAction func share() {
-        guard let url = self.webView.stringByEvaluatingJavaScriptFromString("window.location") else { return }
+        guard let url = self.webView.request?.mainDocumentURL else { return }
         let activities: [AnyObject] = [url]
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         activityViewController.excludedActivityTypes = [
