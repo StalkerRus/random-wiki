@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		19F8F5D31CA7E72E006A3690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F5D21CA7E72E006A3690 /* AppDelegate.swift */; };
-		19F8F5D51CA7E72E006A3690 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F5D41CA7E72E006A3690 /* ViewController.swift */; };
 		19F8F5D81CA7E72E006A3690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F8F5D61CA7E72E006A3690 /* Main.storyboard */; };
 		19F8F5DA1CA7E72E006A3690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F8F5D91CA7E72E006A3690 /* Assets.xcassets */; };
 		19F8F5DD1CA7E72E006A3690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F8F5DB1CA7E72E006A3690 /* LaunchScreen.storyboard */; };
 		19F8F5E81CA7E72E006A3690 /* RandomWikiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F5E71CA7E72E006A3690 /* RandomWikiTests.swift */; };
 		19F8F5F31CA7E72E006A3690 /* RandomWikiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F5F21CA7E72E006A3690 /* RandomWikiUITests.swift */; };
+		19F8F6011CA7E88F006A3690 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6001CA7E88F006A3690 /* ListViewController.swift */; };
+		19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		19F8F5CF1CA7E72B006A3690 /* RandomWiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomWiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F8F5D21CA7E72E006A3690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19F8F5D41CA7E72E006A3690 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19F8F5D71CA7E72E006A3690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19F8F5D91CA7E72E006A3690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19F8F5DC1CA7E72E006A3690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		19F8F5EE1CA7E72E006A3690 /* RandomWikiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomWikiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F8F5F21CA7E72E006A3690 /* RandomWikiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWikiUITests.swift; sourceTree = "<group>"; };
 		19F8F5F41CA7E72E006A3690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19F8F6001CA7E88F006A3690 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				19F8F5D21CA7E72E006A3690 /* AppDelegate.swift */,
-				19F8F5D41CA7E72E006A3690 /* ViewController.swift */,
 				19F8F5D61CA7E72E006A3690 /* Main.storyboard */,
 				19F8F5D91CA7E72E006A3690 /* Assets.xcassets */,
 				19F8F5DB1CA7E72E006A3690 /* LaunchScreen.storyboard */,
 				19F8F5DE1CA7E72E006A3690 /* Info.plist */,
+				19F8F6001CA7E88F006A3690 /* ListViewController.swift */,
+				19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */,
 			);
 			path = RandomWiki;
 			sourceTree = "<group>";
@@ -256,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F8F5D51CA7E72E006A3690 /* ViewController.swift in Sources */,
+				19F8F6011CA7E88F006A3690 /* ListViewController.swift in Sources */,
+				19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */,
 				19F8F5D31CA7E72E006A3690 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RandomWiki/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.home.my.RandomWiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RandomWiki/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.home.my.RandomWiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
