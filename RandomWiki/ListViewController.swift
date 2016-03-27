@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var pageList: UICollectionView!
 
     private var pages: [[String : String]] = []
+    private var cellFormatter: CellFormatter!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let isPhone = UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        let count = isPhone ? 2 : 5
+        self.cellFormatter = CellFormatter(view: self.pageList, itemsOnScreen: count)
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,6 +56,10 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         let controller = WikiViewController.wikiPageControllerWithUrl(url)
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return self.cellFormatter.sizeForCell()
     }
 
     private func isAddPageItemAtIndex(index: Int) -> Bool {
