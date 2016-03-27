@@ -8,12 +8,14 @@
 
 import UIKit
 
-class WikiViewController: UIViewController, UIWebViewDelegate {
+class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControllerDelegate {
 
-    @IBOutlet private weak var webView: UIWebView!
+    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
 
     var url: NSURL?
+
+    private var popover: UIPopoverController?
 
     class func wikiPageControllerWithUrl(urlString: String) -> WikiViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -77,5 +79,21 @@ class WikiViewController: UIViewController, UIWebViewDelegate {
         ]
         let vc = SavePageViewController.savePageControllerWithData(data)
         self.presentViewController(vc, animated: true, completion: nil)
+    }
+
+    @IBAction func share() {
+        guard let url = self.webView.stringByEvaluatingJavaScriptFromString("window.location") else { return }
+        let activities: [AnyObject] = [url]
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activities, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            UIActivityTypePrint,
+            UIActivityTypeMessage,
+            UIActivityTypeCopyToPasteboard,
+            UIActivityTypeAssignToContact,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypeAirDrop,
+            UIActivityTypeAddToReadingList
+        ]
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 }

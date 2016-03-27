@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Pages-->
@@ -139,11 +140,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Wiki" id="4vO-PL-NBY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ler-EG-Ho0">
-                            <connections>
-                                <action selector="savePage" destination="jaq-Im-hi6" id="hGP-kg-U6G"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="ler-EG-Ho0">
+                                <connections>
+                                    <action selector="savePage" destination="jaq-Im-hi6" id="hGP-kg-U6G"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="tuN-Yq-bpt">
+                                <connections>
+                                    <action selector="share" destination="jaq-Im-hi6" id="aXb-BA-2BQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
