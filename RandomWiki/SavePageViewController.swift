@@ -14,12 +14,11 @@ class SavePageViewController: UIViewController {
 
     var data: [String : String] = [:]
 
-    class func savePageControllerWithData(data: [String : String]) -> UINavigationController {
+    class func savePageControllerWithData(data: [String : String]) -> SavePageViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nav = storyboard.instantiateViewControllerWithIdentifier("savePageViewController") as! UINavigationController
-        let save = nav.viewControllers.first as! SavePageViewController
+        let save = storyboard.instantiateViewControllerWithIdentifier("savePageViewController") as! SavePageViewController
         save.data = data
-        return nav
+        return save
     }
 
     override func viewDidLoad() {

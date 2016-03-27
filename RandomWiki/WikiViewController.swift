@@ -76,6 +76,8 @@ class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControll
             "url" : url.absoluteString
         ]
         let vc = SavePageViewController.savePageControllerWithData(data)
+        vc.modalPresentationStyle = .OverCurrentContext
+        vc.modalTransitionStyle = .CrossDissolve
         self.presentViewController(vc, animated: true, completion: nil)
     }
 

@@ -20,7 +20,7 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let isPhone = UIDevice.currentDevice().userInterfaceIdiom == .Phone
         let count = isPhone ? 2 : 5
         self.cellFormatter = CellFormatter(view: self.pageList, itemsOnScreen: count)
-        let longPress = UILongPressGestureRecognizer(target: self, action: Selector("handleLongPress:"))
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ListViewController.handleLongPress))
         longPress.delegate = self
         longPress.delaysTouchesBegan = true
         self.pageList.addGestureRecognizer(longPress)
