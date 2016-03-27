@@ -28,6 +28,16 @@ class WikiStore: NSObject {
     func savePage(page: [String : String]) {
         guard page.keys.count > 0 else { return }
         self.pages.append(page)
+        self.sync()
+    }
+
+    func removePageAtIndex(index: Int) {
+        guard index < self.pages.count else { return }
+        self.pages.removeAtIndex(index)
+        self.sync()
+    }
+
+    private func sync() {
         self.defaults.setObject(self.pages, forKey: self.pagesStorageKey)
         self.defaults.synchronize()
     }

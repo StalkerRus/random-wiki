@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var pageList: UICollectionView!
 
@@ -20,6 +20,10 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let isPhone = UIDevice.currentDevice().userInterfaceIdiom == .Phone
         let count = isPhone ? 2 : 5
         self.cellFormatter = CellFormatter(view: self.pageList, itemsOnScreen: count)
+        let longPress = UILongPressGestureRecognizer(target: self, action: Selector("handleLongPress:"))
+        longPress.delegate = self
+        longPress.delaysTouchesBegan = true
+        self.pageList.addGestureRecognizer(longPress)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -64,5 +68,17 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     private func isAddPageItemAtIndex(index: Int) -> Bool {
         return index == 0 && self.pages[index].keys.count == 0
+    }
+
+    func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        if recognizer.state != .Ended {
+            return
+        }
+        let point = recognizer.locationInView(self.pageList)
+        if let indexPath = self.pageList.indexPathForItemAtPoint(point) where indexPath.row != 0 {
+            self.pages.removeAtIndex(indexPath.row)
+            self.pageList.reloadData()
+            WikiStore.sharedStore.removePageAtIndex(indexPath.row - 1)
+        }
     }
 }
