@@ -29,6 +29,7 @@ class SavePageViewController: UIViewController {
 
     @IBAction func save() {
         print("Saved!")
+        WikiStore.sharedStore.savePage(self.data)
         self.cancel()
     }
 

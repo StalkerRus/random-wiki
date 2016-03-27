@@ -12,11 +12,12 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var pageList: UICollectionView!
 
-    private var pages: [[String : AnyObject]] = []
+    private var pages: [[String : String]] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.pages.append([:])
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.pages = [[:]]
+        self.pages += WikiStore.sharedStore.pages
         self.pageList.reloadData()
     }
 
