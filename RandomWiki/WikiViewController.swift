@@ -79,7 +79,7 @@ class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControll
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
-    @IBAction func share() {
+    @IBAction func share(sender: UIBarButtonItem) {
         guard let url = self.webView.request?.mainDocumentURL else { return }
         let activities: [AnyObject] = [url]
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: activities, applicationActivities: nil)
@@ -92,6 +92,7 @@ class WikiViewController: UIViewController, UIWebViewDelegate, UIPopoverControll
             UIActivityTypeAirDrop,
             UIActivityTypeAddToReadingList
         ]
+        activityViewController.popoverPresentationController?.barButtonItem = sender
         self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 }

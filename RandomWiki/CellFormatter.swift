@@ -23,7 +23,8 @@ class CellFormatter: NSObject {
     func sizeForCell() -> CGSize {
         guard let view = self.view else { return CGSizeZero }
         let itemWidth = floor((view.frame.size.width - self.calculateOffsets()) / CGFloat(self.itemsOnScreen))
-        return CGSizeMake(itemWidth, itemWidth / self.kDefaultRatio)
+        let realWidth = max(itemWidth, 130)
+        return CGSizeMake(realWidth, realWidth / self.kDefaultRatio)
     }
 
     func calculateOffsets() -> CGFloat {
