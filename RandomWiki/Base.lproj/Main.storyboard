@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Pages-->
@@ -167,7 +168,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxG-kT-V47">
-                                <rect key="frame" x="20" y="251.5" width="560" height="97"/>
+                                <rect key="frame" x="20" y="161.5" width="560" height="97"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shA-ha-G7C">
                                         <rect key="frame" x="0.0" y="0.0" width="33.5" height="21"/>
@@ -175,11 +176,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boT-Tl-noO">
-                                        <rect key="frame" x="0.0" y="29" width="560" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubE-O3-idM">
                                         <rect key="frame" x="0.0" y="67" width="560" height="30"/>
                                         <state key="normal" title="Save"/>
@@ -187,6 +183,11 @@
                                             <action selector="save" destination="yGu-wM-sGG" eventType="touchUpInside" id="uNn-hu-yf6"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boT-Tl-noO">
+                                        <rect key="frame" x="0.0" y="29" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -207,10 +208,16 @@
                             <constraint firstAttribute="trailing" secondItem="lxG-kT-V47" secondAttribute="trailing" constant="20" id="3JF-de-xfD"/>
                             <constraint firstItem="lxG-kT-V47" firstAttribute="centerX" secondItem="fEh-zo-bs8" secondAttribute="centerX" id="L6h-5U-Fak"/>
                             <constraint firstItem="lxG-kT-V47" firstAttribute="leading" secondItem="fEh-zo-bs8" secondAttribute="leading" constant="20" id="Nk7-Qd-eVk"/>
-                            <constraint firstItem="lxG-kT-V47" firstAttribute="centerY" secondItem="fEh-zo-bs8" secondAttribute="centerY" id="U56-8v-8CP"/>
+                            <constraint firstItem="lxG-kT-V47" firstAttribute="centerY" secondItem="fEh-zo-bs8" secondAttribute="centerY" multiplier="0.7" id="U56-8v-8CP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Save Page" id="qE4-i4-jrq"/>
+                    <navigationItem key="navigationItem" title="Save Page" id="qE4-i4-jrq">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bdT-dY-7d4">
+                            <connections>
+                                <action selector="cancel" destination="yGu-wM-sGG" id="ANc-UC-pWs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="titleField" destination="boT-Tl-noO" id="l1x-EI-6IG"/>
                     </connections>

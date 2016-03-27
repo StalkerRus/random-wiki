@@ -29,6 +29,11 @@ class SavePageViewController: UIViewController {
 
     @IBAction func save() {
         print("Saved!")
+        self.cancel()
+    }
+
+    @IBAction func cancel() {
+        self.titleField.resignFirstResponder()
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }
