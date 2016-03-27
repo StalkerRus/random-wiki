@@ -15,6 +15,7 @@
 		19F8F5F31CA7E72E006A3690 /* RandomWikiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F5F21CA7E72E006A3690 /* RandomWikiUITests.swift */; };
 		19F8F6011CA7E88F006A3690 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6001CA7E88F006A3690 /* ListViewController.swift */; };
 		19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */; };
+		19F8F6071CA7FCFE006A3690 /* SavePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		19F8F5F41CA7E72E006A3690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19F8F6001CA7E88F006A3690 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				19F8F5DE1CA7E72E006A3690 /* Info.plist */,
 				19F8F6001CA7E88F006A3690 /* ListViewController.swift */,
 				19F8F6021CA7EAD1006A3690 /* WikiViewController.swift */,
+				19F8F6061CA7FCFE006A3690 /* SavePageViewController.swift */,
 			);
 			path = RandomWiki;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				19F8F6011CA7E88F006A3690 /* ListViewController.swift in Sources */,
 				19F8F6031CA7EAD1006A3690 /* WikiViewController.swift in Sources */,
+				19F8F6071CA7FCFE006A3690 /* SavePageViewController.swift in Sources */,
 				19F8F5D31CA7E72E006A3690 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

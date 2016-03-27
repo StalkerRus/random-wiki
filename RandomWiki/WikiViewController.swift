@@ -27,6 +27,8 @@ class WikiViewController: UIViewController, UIWebViewDelegate {
         self.reload()
     }
 
+    // MARK: Page loading
+
     func reload() {
         guard let url  = self.url else { return }
         self.webView.loadRequest(NSURLRequest(URL: url))
@@ -59,5 +61,21 @@ class WikiViewController: UIViewController, UIWebViewDelegate {
         }
         alert.addAction(retry)
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+
+    // MARK: Page saving
+
+    @IBAction func savePage() {
+        var title = ""
+        guard let url = self.webView.stringByEvaluatingJavaScriptFromString("window.location") else { return }
+        if let webTitle = self.webView.stringByEvaluatingJavaScriptFromString("document.title") {
+            title = webTitle
+        }
+        let data = [
+            "title" : title,
+            "url" : url
+        ]
+        let vc = SavePageViewController.savePageControllerWithData(data)
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 }
