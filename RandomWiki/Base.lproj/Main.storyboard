@@ -80,6 +80,10 @@
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="cUD-uV-qPL" id="Tlu-1E-3Rp"/>
+                                    <outlet property="delegate" destination="cUD-uV-qPL" id="hal-pt-tCs"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -99,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1138" y="368"/>
         </scene>
-        <!--Wiki View Controller-->
+        <!--Wiki-->
         <scene sceneID="CG6-RK-sfl">
             <objects>
-                <viewController id="jaq-Im-hi6" customClass="WikiViewController" customModule="RandomWiki" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wikiViewController" title="Wiki" automaticallyAdjustsScrollViewInsets="NO" id="jaq-Im-hi6" customClass="WikiViewController" customModule="RandomWiki" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bCh-xr-zKq"/>
                         <viewControllerLayoutGuide type="bottom" id="Vbv-F1-cRL"/>
@@ -114,17 +118,30 @@
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUs-Xs-MWd">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jaq-Im-hi6" id="N5U-y9-GUB"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tdf-hV-Qdm">
+                                <rect key="frame" x="282" y="281.5" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tdf-hV-Qdm" firstAttribute="centerX" secondItem="765-ZF-VcB" secondAttribute="centerX" id="3Dw-5l-fbD"/>
                             <constraint firstAttribute="trailing" secondItem="lUs-Xs-MWd" secondAttribute="trailing" id="Dk1-Rf-WAw"/>
                             <constraint firstItem="Vbv-F1-cRL" firstAttribute="top" secondItem="lUs-Xs-MWd" secondAttribute="bottom" id="K1I-L3-dcw"/>
                             <constraint firstItem="lUs-Xs-MWd" firstAttribute="leading" secondItem="765-ZF-VcB" secondAttribute="leading" id="Mfp-9A-KCZ"/>
+                            <constraint firstItem="tdf-hV-Qdm" firstAttribute="centerY" secondItem="765-ZF-VcB" secondAttribute="centerY" id="adX-i0-zM4"/>
                             <constraint firstItem="lUs-Xs-MWd" firstAttribute="top" secondItem="bCh-xr-zKq" secondAttribute="bottom" id="iUi-d5-n4Z"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="indicatorView" destination="tdf-hV-Qdm" id="Xpl-at-PKZ"/>
+                        <outlet property="webView" destination="lUs-Xs-MWd" id="0qc-vk-u2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gE3-hY-k2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,7 +16,8 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.pages.append([:])
+        self.pageList.reloadData()
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,12 +29,25 @@ class ListViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("addPageCell", forIndexPath: indexPath)
+        if self.isAddPageItemAtIndex(indexPath.row) {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("newPageCell", forIndexPath: indexPath)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("savedPageCell", forIndexPath: indexPath)
             return cell
         }
+    }
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let url = "https://en.wikipedia.org/wiki/Special:Random"
+        if !self.isAddPageItemAtIndex(indexPath.row) {
+
+        }
+        let controller = WikiViewController.wikiPageControllerWithUrl(url)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    private func isAddPageItemAtIndex(index: Int) -> Bool {
+        return index == 0 && self.pages[index].keys.count == 0
     }
 }
